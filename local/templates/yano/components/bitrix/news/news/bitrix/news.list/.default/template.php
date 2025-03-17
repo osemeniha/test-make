@@ -31,7 +31,7 @@ $this->setFrameMode(true);
        <?echo $arItem["NAME"]?>
       </h2>
      </a>
-     <time class="news-important__publication-date" ><?echo $arItem["DATE_CREATE"]?></time>
+     <time class="news-important__publication-date" ><?echo date_format(new DateTime($arItem["DATE_CREATE"]), 'd.m.Y'); ?></time>
     </article>
    <?else:?>
     <article class="news news--wide">
@@ -46,7 +46,7 @@ $this->setFrameMode(true);
       </span>
        </h3>
      </a>
-     <time class="news__publication-date" ><?echo $arItem["DATE_CREATE"]?></time>
+     <time class="news__publication-date" ><?echo date_format(new DateTime($arItem["DATE_CREATE"]), 'd.m.Y'); ?></time>
       </div>
       <div class="news__illustration" style="background-image: url(<?echo $arItem["PREVIEW_PICTURE"]["SRC"]?>)"></div>
     </article>
