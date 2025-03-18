@@ -1,11 +1,12 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Новости");
-?>
+?><?$currentPage = $APPLICATION->GetCurPage();
+if ($currentPage == '/novosti/') {?>
 <section class="press-center" data-controller="view-more">
-  <header class="press-center__header">
+  <div class="press-center__header">
     <h1 class="light">Новости</h1>
-  </header>
+	</div><? }?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"news",
@@ -26,7 +27,7 @@ $APPLICATION->SetTitle("Новости");
 		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
-		"DETAIL_FIELD_CODE" => array("",""),
+		"DETAIL_FIELD_CODE" => array("NAME","DETAIL_TEXT","DETAIL_PICTURE","DATE_CREATE",""),
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
@@ -78,10 +79,9 @@ $APPLICATION->SetTitle("Новости");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N"
 	)
-);?>
+);?><?$currentPage = $APPLICATION->GetCurPage();
+if ($currentPage == '/novosti/') {?>
 <div class="grid-container">
-    <a class="press-center__view-more button button--inverted" href="press-center.html" data-target="view-more.button"
-      data-action="view-more#load">Показать более ранние материалы</a>
+    <a class="press-center__view-more button button--inverted" href="press-center.html" data-target="view-more.button" data-action="view-more#load">Показать более ранние материалы</a>
   </div>
-</section>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+</section> <? }?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
